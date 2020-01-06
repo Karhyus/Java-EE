@@ -33,21 +33,38 @@ public class GenericsSequence<T extends Comparable<T>> {
     
     public boolean remove(T element){
         int i = 0;
-        while(i < this.size && element.compareTo((T) this.elements[i])!=0){
-            i +=1;
-            System.out.println(i);
+        int index= -1;
+        while(i< this.size){
+            if(element.compareTo((T) this.elements[i]) == 0){
+                index= i;
+            }
+            i++;
         }
-        if(i>=size){
+        
+        i=0;
+        int y = 0;
+        if(index != -1){
+            Object[] array = new Object[100];
+            while(i< this.size){
+                if(i!=index){
+                    array[y] = this.elements[i];
+                    y++;
+                }
+                i++;
+            }
+            this.size= y;
+            int w = 0;
+            this.elements[0] = array[0];
+            while(w< this.size){
+                //this.setArray((T)array[y], w);
+                this.elements[w]= array[w];
+                w++;
+            }
+            return true;
+        }else{
             return false;
         }
         
-        this.size -= 1;
-        
-        while(i < this.size){
-            this.elements[i] = this.elements[i + 1];
-        }
-        
-        return true;
     }
     
     public T get(int index){
@@ -73,7 +90,6 @@ public class GenericsSequence<T extends Comparable<T>> {
         if(this.size>= this.elements.length){
             throw new IllegalStateException();
         }
-        System.out.println(list.length);
         int y = 0;
         while(y < list.length){
             remove(list[y]);
@@ -93,5 +109,7 @@ public class GenericsSequence<T extends Comparable<T>> {
             i++;
         }
     }
+    
+
     
 }

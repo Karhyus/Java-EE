@@ -24,23 +24,15 @@ public class ClassTester {
       integerSeq.add(12);
       integerSeq.add(54);
       integerSeq.add(45);
-      integerSeq.getAll();
-      
-      System.out.println(integerSeq.remove(45));
-      integerSeq.getAll();
+
       
       stringSeq.add("A");
       stringSeq.add("B");
       stringSeq.add("C");
       stringSeq.add("String");
       stringSeq.getAll();
-      
-      System.out.println(stringSeq.remove("A"));
-      //stringSeq.removeAll(list);
+      stringSeq.removeAll(list);
       stringSeq.getAll();
-      
-      //System.out.println(integerSeq.max());
-      //System.out.println(stringSeq.max());
-      //System.out.println(objectSeq.get(0));
+
   }
 }
