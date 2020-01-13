@@ -109,7 +109,4 @@ public class GenericsSequence<T extends Comparable<T>> {
             i++;
         }
     }
-    
-
-    
 }
